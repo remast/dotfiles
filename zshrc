@@ -81,8 +81,6 @@ alias bst='cd ~/projects/bestand'
 alias sg='nohup ~/tools/smartgit/bin/smartgit.sh >/dev/null 2>&1 &'
 alias ssvn='nohup ~/tools/smartsvn/bin/smartsvn.sh >/dev/null 2>&1 &'
 alias squirrel='nohup ~/tools/squirrel/squirrel-sql.sh >/dev/null 2>&1 &'
-alias sts='nohup ~/tools/sts-bundle/sts/STS >/dev/null 2>&1 &'
-alias ecl='nohup ~/tools/eclipse-kepler/eclipse >/dev/null 2>&1 &'
 alias soap='nohup ~/tools/soapUI-5.0.0/bin/soapui.sh >/dev/null 2>&1 &'
 alias idea='nohup ~/tools/idea-IU/bin/idea.sh >/dev/null 2>&1 &'
 alias yed='nohup java -jar ~/tools/yed-3.12/yed.jar >/dev/null 2>&1 &'
@@ -93,8 +91,4 @@ alias baseLogin='ssh red6@base'
 alias cleanKernels="dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge"
 
 # HanseMerkur Infrastruktur
-alias hmteamserverLogin="ssh root@hmvxep29.hanse-merkur.de"
-alias hmteamserverDeploy='ssh root@hmvxep29.hanse-merkur.de deployBestand.sh'
-alias proxyLdapStart='sudo simpleproxy -L localhost:636 -R ldap1.hanse-merkur.de:636 -S localhost:3128 -d'
-alias proxyNexusStart='sudo simpleproxy -L localhost:8338 -R repository.ae.hanse-merkur.de:8338 -S localhost:3128 -d'
 alias proxyStop='sudo killall simpleproxy'
