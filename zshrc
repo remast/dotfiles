@@ -74,12 +74,9 @@ source ~/.bashrc.d/source_bashrcdir
 source ~/.bash_aliases
 
 # Shortcuts
-alias hb='cd ~/projects/humboldt'
-alias bst='cd ~/projects/bestand'
+alias pp='cd ~/projects'
 
 # Tools
-alias sg='nohup ~/tools/smartgit/bin/smartgit.sh >/dev/null 2>&1 &'
-alias ssvn='nohup ~/tools/smartsvn/bin/smartsvn.sh >/dev/null 2>&1 &'
 alias squirrel='nohup ~/tools/squirrel/squirrel-sql.sh >/dev/null 2>&1 &'
 alias soap='nohup ~/tools/soapUI-5.0.0/bin/soapui.sh >/dev/null 2>&1 &'
 alias idea='nohup ~/tools/idea-IU/bin/idea.sh >/dev/null 2>&1 &'
