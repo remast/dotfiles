@@ -89,3 +89,13 @@ alias cleanKernels="dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*
 
 # HanseMerkur Infrastruktur
 alias proxyStop='sudo killall simpleproxy'
+
+alias ffs='rm -rf node_modules/ && npm cache clean && npm i'
+
+# Read .nvmrc
+function chpwd() {
+  emulate -L zsh
+  if [[ -f .nvmrc ]] then
+    nvm use
+  fi
+}
