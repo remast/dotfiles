@@ -1,5 +1,0 @@
-#/bin/bash
-supervisorctl start humboldt:proxy-ldap
-supervisorctl start humboldt:ssh-hmteamserver
-supervisorctl start humboldt:proxy-obs-ldap
-docker start oracle-xe

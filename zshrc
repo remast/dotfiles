@@ -45,14 +45,11 @@ ZSH_THEME="ys"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow svn mvn sublime)
+plugins=(git git-flow git-extras svn mvn sublime kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-#export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/node/node-v0.10.26/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 export PATH=~/bin:$PATH
 export PATH=~/.dotfiles/bin/:$PATH
@@ -72,6 +69,7 @@ fi
 
 source ~/.bashrc.d/source_bashrcdir
 source ~/.bash_aliases
+# source /home/jan/.gvm/scripts/gvm
 
 # Shortcuts
 alias pp='cd ~/projects'
@@ -80,15 +78,27 @@ alias pp='cd ~/projects'
 alias squirrel='nohup ~/tools/squirrel/squirrel-sql.sh >/dev/null 2>&1 &'
 alias soap='nohup ~/tools/soapUI-5.0.0/bin/soapui.sh >/dev/null 2>&1 &'
 alias idea='nohup ~/tools/idea-IU/bin/idea.sh >/dev/null 2>&1 &'
-alias yed='nohup java -jar ~/tools/yed-3.12/yed.jar >/dev/null 2>&1 &'
-alias baralga='nohup java -Duser.country=DE -Duser.language=de -Duser.timezone=Europe/Berlin -jar tools/Baralga-1.7.7-SNAPSHOT/Baralga-1.7.7-SNAPSHOT.jar >/dev/null 2>&1 &'
+alias yed='nohup java -jar ~/tools/yed-3.12/yed.jar >/dev/null 2>&1 &'i
+alias baralga='nohup java -Duser.country=DE -Duser.language=de -Duser.timezone=Europe/Berlin -jar ~/synced/tools/Baralga-1.8.0/Baralga-1.8.0.jar >/dev/null 2>&1 &'
 alias jbs='startJBoss'
+
+alias startSZ1='~/projects/hmrv_obs/test-sz1/build/jboss_with_deployments/eap_unpacked/hm-eap/bin/standalone.sh -Djboss.socket.binding.port-offset=10000 --debug 38989'
+alias startSZ3='~/projects/hmrv_obs/test-sz3/build/jboss_with_deployments/eap_unpacked/hm-eap/bin/standalone.sh --debug 28989'
+
+alias mci='mvn -T 1C clean install'
+
+alias deployRps='cp ~/projects/hmrv_obs/rps/ear/target/rps-ear*.ear ~/projects/hmrv_obs/test-sz1/build/jboss_with_deployments/eap_unpacked/hm-eap/standalone/deployments/'
+alias deployRvm='cp ~/projects/hmrv_obs/rvm/ear/target/rvm-ear*.ear ~/projects/hmrv_obs/test-sz3/build/jboss_with_deployments/eap_unpacked/hm-eap/standalone/deployments/'
+alias deployRbs='cp ~/projects/hmrv_obs/rbs/ear/target/rbs-ear*.ear ~/projects/hmrv_obs/test-sz1/build/jboss_with_deployments/eap_unpacked/hm-eap/standalone/deployments/'
+alias deployRda='cp ~/projects/hmrv_obs/rda/ear/target/rda-ear*.ear ~/projects/hmrv_obs/test-sz3/build/jboss_with_deployments/eap_unpacked/hm-eap/standalone/deployments/'
+alias deployRzs='cp ~/projects/hmrv_obs/rzs/ear/target/rzs-ear*.ear ~/projects/hmrv_obs/test-sz1/build/jboss_with_deployments/eap_unpacked/hm-eap/standalone/deployments/'
+alias deployRva='cp ~/projects/hmrv_obs/rva/ear/target/rva-ear*.ear ~/projects/hmrv_obs/test-sz1/build/jboss_with_deployments/eap_unpacked/hm-eap/standalone/deployments/'
+alias deployRvw='cp ~/projects/hmrv_obs/rvw/ear/target/rvw-ear*.ear ~/projects/hmrv_obs/test-sz3/build/jboss_with_deployments/eap_unpacked/hm-eap/standalone/deployments/'
+
+alias deploySsk='cp ~/projects/vertical-sollstellung/ear/target/vertical-sollstellung*.ear ~/tools/jboss-eap-6/standalone/deployments/vertical-sollstellung-ear.ear'
 
 alias baseLogin='ssh red6@base'
 alias cleanKernels="dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge"
-
-# HanseMerkur Infrastruktur
-alias proxyStop='sudo killall simpleproxy'
 
 alias ffs='rm -rf node_modules/ && npm cache clean && npm i'
 
@@ -99,3 +109,9 @@ function chpwd() {
     nvm use
   fi
 }
+source ~/.bashrc.d/humboldt_aliases
+source ~/.nvmrc_zsh
+eval "$(direnv hook zsh)"
+
+# added by travis gem
+[ -f /home/jan/.travis/travis.sh ] && source /home/jan/.travis/travis.sh
